@@ -2,7 +2,7 @@
 
 This project demonstrates the vulnerabilities related to improper handling of randomness. Credit to [@pvrego](https://github.com/pvrego) for the original contract, deployed on High Performance Blockchain to leverage its proprietary per-block randomness.
 
-## Attack vector 1
+## Attack vector 1 - Lottery.sol
 Using an auxiliary contract ``AttackOne.sol``, we are able to call the underlying contract's ``enter`` method, and revert if the outcome is not to our liking
 
 To perform the attack:
@@ -11,7 +11,7 @@ To perform the attack:
 
 To resist this attack vector, ``LotteryV2.sol`` adds an ``OnlyEOA`` modifier to prevent malicious smart contracts from calling the ``enter`` function. However, this is still not perfect:
 
-## Attack vector 2
+## Attack vector 2 - LotteryV2.sol
 Performed by a node/miner/block producer, this attack relies on this entity having prior knowledge of the random outcome at the top of the block. In the case of HPB, a block producer could see the ``block.random`` produced at the top of the block, and use this information to decide whether or not to join the lottery.
 
 To perform the attack:
