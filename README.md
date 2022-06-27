@@ -18,6 +18,9 @@ To perform the attack:
 - Create a local dev chain using ganache, or by running ``npx hardhat node`` in a terminal window
 - Run the attack script - ``npx hardhat run ./scripts/attackTwo.js --network localhost``
 
+Note: The chance of this attack being performed are increased when paired with current vulnerabilities within the HPB consensus mechanism, described in [this paper.](https://arxiv.org/pdf/2203.03008.pdf)
+
+
 ## SafeLottery.sol + SafeRetrieveRandom.sol
 These contracts illustrate a hypothetical solution (not currently possible due to limitations with the HPB blockchain), whereby a future block is chosen as the source of randomness, and is resolved later via the ``revealWinner`` function. This has the advantage of deterministic randomness (the random result cannot be changed after a user buys a lottery ticket), yet the outcome cannot be determined by malicious nodes or other attackers at the time a commitment is made.
 
