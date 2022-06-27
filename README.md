@@ -19,7 +19,7 @@ To perform the attack:
 - Run the attack script - ``npx hardhat run ./scripts/attackTwo.js --network localhost``
 
 ## SafeLottery.sol + SafeRetrieveRandom.sol
-These contracts illustrate a hypothetical solution (not currently possible due to limitations with the HPB blockchain), whereby a future block is chosen as the source of randomness, and is resolved later via the ``revealWinner`` function. This has the advantage of deterministic randomness (the random result cannot be changed after a use buys a lottery ticket), yet the outcome cannot be determined by malicious nodes or other attackers at the time a commitment is made.
+These contracts illustrate a hypothetical solution (not currently possible due to limitations with the HPB blockchain), whereby a future block is chosen as the source of randomness, and is resolved later via the ``revealWinner`` function. This has the advantage of deterministic randomness (the random result cannot be changed after a user buys a lottery ticket), yet the outcome cannot be determined by malicious nodes or other attackers at the time a commitment is made.
 
 In this model, we require 2 blocks to have passed between the final ticket sale, and any subsequent call to resolve the randomness. This has the effect of requiring malicious nodes to be able to mine several blocks in a row to be able to undo a commitment if it turns out to be a loss after ``revealWinner`` is called.
 
